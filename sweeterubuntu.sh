@@ -37,6 +37,11 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
 
+# Some useful keyboard shortcuts
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal '<Super>t'
+gsettings set org.gnome.settings-daemon.plugins.media-keys home '<Super>f'
+gsettings set org.gnome.settings-daemon.plugins.media-keys www '<Super>w'
+
 # Dock size 28
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 28
 
