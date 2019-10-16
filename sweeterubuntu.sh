@@ -31,11 +31,28 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>
 # Tab only active workspace
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
+# Change alt+tab to switch window and suber+tab to switch application
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
+
 # Dock size 28
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 28
 
-# Move Titlebar buttons to the left
+# Move titlebar buttons to the left
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+
+# Show battery percentage
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+# Some date options
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.calendar show-weekdate true
+
+# Disable animations
+gsettings set org.gnome.desktop.interface enable-animations false
 
 # Disable Workspace switcher popup
 # sudo nano /usr/share/gnome-shell/theme/ubuntu.css
