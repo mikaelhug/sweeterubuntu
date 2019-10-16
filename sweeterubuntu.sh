@@ -60,7 +60,10 @@ gsettings set org.gnome.desktop.calendar show-weekdate true
 gsettings set org.gnome.desktop.interface enable-animations false
 
 # Install some extensions
-sudo apt install gnome-shell-extension-weather
+sudo apt install gnome-shell-extension-weather gnome-shell-extensions -y
+
+# Enable extensions
+# gsettings set org.gnome.shell enabled-extensions "['workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
 
 
 # Disable Workspace switcher popup
