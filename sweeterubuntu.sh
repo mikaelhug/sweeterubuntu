@@ -59,6 +59,10 @@ gsettings set org.gnome.desktop.calendar show-weekdate true
 # Disable animations
 gsettings set org.gnome.desktop.interface enable-animations false
 
+# Install some extensions
+sudo apt install gnome-shell-extension-weather
+
+
 # Disable Workspace switcher popup
 # sudo nano /usr/share/gnome-shell/theme/ubuntu.css
 # ########### BYT #################
