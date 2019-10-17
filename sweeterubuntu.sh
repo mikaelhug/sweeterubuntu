@@ -41,6 +41,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal '<Super>t'
 gsettings set org.gnome.settings-daemon.plugins.media-keys home '<Super>f'
 gsettings set org.gnome.settings-daemon.plugins.media-keys www '<Super>w'
+gsettings set org.gnome.desktop.wm.keybindings panel-run-dialog "['<Super>r']"
 
 # Dock size 28
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 28
