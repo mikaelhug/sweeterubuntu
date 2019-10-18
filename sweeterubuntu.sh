@@ -3,15 +3,16 @@
 ####### UPDATE SYSTEM #######
 sudo apt update
 sudo apt upgrade -y
+sudo apt install curl wget -y
 ####### END UPDATE SYSTEM #######
 
 
 ####### PACKAGE CONFIG #######
 
 # Remove Snaps | because snaps are evil
-# sudo rm -rf /var/cache/snapd/
-# sudo apt autoremove --purge snapd gnome-software-plugin-snap
-# rm -fr ~/snap
+sudo rm -rf /var/cache/snapd/
+sudo apt autoremove --purge snapd gnome-software-plugin-snap -y
+rm -rf ~/snap
 
 # Nextcloud PPA
 sudo add-apt-repository ppa:nextcloud-devs/client -y
@@ -21,10 +22,17 @@ curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # Install packages
-sudo apt install nextcloud-client spotify-client chromium thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
+sudo apt update
+sudo apt install nextcloud-client spotify-client chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
+sudo apt install gconf2 python libappindicator1 libindicator7 -y
 
-# Install .deb:s
-# slack, vscode
+# Install .deb:s | should ideally automatically download latest
+cd ~/Downloads
+wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
+sudo dpkg -i code_1.39.2-1571154070_amd64.deb
+sudo dpkg -i slack-desktop-4.1.1-amd64.deb
+rm code_1.39.2-1571154070_amd64.deb slack-desktop-4.1.1-amd64.deb
 
 # Create Chromium web-apps
 
