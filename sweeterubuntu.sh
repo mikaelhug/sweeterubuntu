@@ -29,15 +29,11 @@ sudo apt install nextcloud-client spotify-client chromium-browser thunderbird li
 sudo apt install python3-pip git -y
 # -->
 
-# pip3 installs
-/usr/bin/python3 -m pip install -U pylint matplotlib numpy scipy jupyterlab --user
-# -->
-
 # Slack
 sudo apt install gconf2 python libappindicator1 libindicator7 -y
 cd ~/Downloads
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
-sudo dpkg -i code_1.39.2-1571154070_amd64.deb
+sudo dpkg -i slack-desktop-4.1.1-amd64.deb
 rm slack-desktop-4.1.1-amd64.deb
 # -->
 
@@ -46,14 +42,6 @@ cd ~/Downloads
 wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
 sudo dpkg -i code_1.39.2-1571154070_amd64.deb
 rm code_1.39.2-1571154070_amd64.deb
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
-rm -f ~/.config/Code/User/settings.json
-rm -f ~/.config/Code/User/keybindings.json
-mv settings.json ~/.config/Code/User/settings.json
-mv keybindings-linux.json ~/.config/Code/User/keybindings.json
-
-/usr/bin/python3 -m pip install -U pylint --user
 
 code --install-extension ms-python.python
 code --install-extension vscodevim.vim
@@ -62,6 +50,15 @@ code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension cssho.vscode-svgviewer
+
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
+rm -f ~/.config/Code/User/settings.json
+rm -f ~/.config/Code/User/keybindings.json
+mv settings.json ~/.config/Code/User/settings.json
+mv keybindings-linux.json ~/.config/Code/User/keybindings.json
+
+/usr/bin/python3 -m pip install -U pylint --user
 # -->
 
 # Jupyter Lab
@@ -70,14 +67,23 @@ code --install-extension cssho.vscode-svgviewer
 # -->
 
 # Firefox uBlock Origin, https everywhere, privacy badger,floccus, vimium
-wget https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi
+cd ~/Downloads
+wget https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi -O uBlock0@raymondhill.net.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi -O https-everywhere@eff.org.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi -O jid1-MnnxcxisBPnSXQ@jetpack.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi -O floccus@handmadeideas.org.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi -O {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+mv uBlock0@raymondhill.net.xpi ~/.mozilla/firefox/*.default-release/extensions/uBlock0@raymondhill.net.xpi
+mv https-everywhere@eff.org.xpi ~/.mozilla/firefox/*.default-release/extensions/https-everywhere@eff.org.xpi
+mv jid1-MnnxcxisBPnSXQ@jetpack.xpi ~/.mozilla/firefox/*.default-release/extensions/jid1-MnnxcxisBPnSXQ@jetpack.xpi
+mv floccus@handmadeideas.org.xpi ~/.mozilla/firefox/*.default-release/extensions/floccus@handmadeideas.org.xpi
+mv {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi ~/.mozilla/firefox/*.default-release/extensions/{d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
 # -->
 
 # Create Chromium web-apps
+
+# -->
+
 
 ####### END PACKAGE CONFIG #######
 
@@ -134,6 +140,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'D
 
 # Move titlebar buttons to the left
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+
+# Use expanded list view
+gsettings set org.gnome.nautilus.list-view use-tree-view true
 
 # Show battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
