@@ -106,6 +106,10 @@ then
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
+   chmod +x chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
+   chmod +x chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
+   chmod +x chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
+   chmod +x chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
 fi
 # -->
 
