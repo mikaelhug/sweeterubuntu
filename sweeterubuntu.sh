@@ -15,24 +15,24 @@ rm -rf ~/snap
 # -->
 
 # Nextcloud PPA
-dpkg-query --show "nextcloud-client"
+test -f /etc/apt/sources.list.d/nextcloud-devs-ubuntu-client-bionic.list
 if [ "$?" != "0" ];
 then
    sudo add-apt-repository ppa:nextcloud-devs/client -y
    sudo apt update
-   sudo apt install nextcloud-client -y
 fi
+sudo apt install nextcloud-client -y
 # -->
 
 # Spotify
-dpkg-query --show "spotify-client"
+test -f /etc/apt/sources.list.d/spotify.list
 if [ "$?" != "0" ];
 then
    curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
    sudo apt update
-   sudo apt install spotify-client -y
 fi
+sudo apt install spotify-client -y
 # -->
 
 # Install packages
@@ -42,34 +42,24 @@ sudo apt install python3-pip git -y
 # -->
 
 # Slack
-dpkg-query --show "slack-desktop"
+test -f /etc/apt/sources.list.d/slack.list
 if [ "$?" != "0" ];
 then
-   sudo apt install gconf2 python libappindicator1 libindicator7 -y
-   cd ~/Downloads
-   wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
-   sudo dpkg -i slack-desktop-4.1.1-amd64.deb
-   rm slack-desktop-4.1.1-amd64.deb
+   echo "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main" | sudo tee /etc/apt/sources.list.d/slack.list
+   sudo apt update
 fi
+sudo apt install gconf2 python libappindicator1 libindicator7 -y
+sudo apt install slack-desktop -y
 # -->
 
 # VScode
-dpkg-query --show "code"
+test -f /etc/apt/sources.list.d/vscode.list
 if [ "$?" != "0" ];
 then
+   echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/slack.list
+   sudo apt update
+
    cd ~/Downloads
-   wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
-   sudo dpkg -i code_1.39.2-1571154070_amd64.deb
-   rm code_1.39.2-1571154070_amd64.deb
-
-   code --install-extension ms-python.python
-   code --install-extension vscodevim.vim
-   code --install-extension rafamel.subtle-brackets
-   code --install-extension ms-vscode-remote.vscode-remote-extensionpack
-   code --install-extension ms-vscode.cpptools
-   code --install-extension ms-azuretools.vscode-docker
-   code --install-extension cssho.vscode-svgviewer
-
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
    rm -f ~/.config/Code/User/settings.json
@@ -77,6 +67,13 @@ then
    mv settings.json ~/.config/Code/User/
    mv keybindings-linux.json ~/.config/Code/User/
 fi
+code --install-extension ms-python.python
+code --install-extension vscodevim.vim
+code --install-extension rafamel.subtle-brackets
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension cssho.vscode-svgviewer
 # -->
 
 # Jupyter Lab
