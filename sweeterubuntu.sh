@@ -122,7 +122,9 @@ gsettings set org.gnome.desktop.interface enable-animations false
 # #####################################
 
 # /usr/share/gnome-shell/theme/gnome-shell.css
-#.panel-button {
-#    -natural-hpadding: 6px;
+#panel .panel-button {
+# -natural-hpadding: 4px;
+# -minimum-hpadding: 4px;
+
 
 ####### END UI CONFIG #######
