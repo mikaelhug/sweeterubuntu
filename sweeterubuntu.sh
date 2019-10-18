@@ -15,78 +15,108 @@ rm -rf ~/snap
 # -->
 
 # Nextcloud PPA
-sudo add-apt-repository ppa:nextcloud-devs/client -y
+dpkg-query --show "nextcloud-client"
+if [ "$?" != "0" ];
+then
+   sudo add-apt-repository ppa:nextcloud-devs/client -y
+   sudo apt update
+   sudo apt install nextcloud-client -y
+fi
 # -->
 
-# Spotify Repo
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+# Spotify
+dpkg-query --show "spotify-client"
+if [ "$?" != "0" ];
+then
+   curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+   sudo apt update
+   sudo apt install spotify-client -y
+fi
 # -->
 
 # Install packages
 sudo apt update
-sudo apt install nextcloud-client spotify-client chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
+sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
 sudo apt install python3-pip git -y
 # -->
 
 # Slack
-sudo apt install gconf2 python libappindicator1 libindicator7 -y
-cd ~/Downloads
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
-sudo dpkg -i slack-desktop-4.1.1-amd64.deb
-rm slack-desktop-4.1.1-amd64.deb
+dpkg-query --show "slack-desktop"
+if [ "$?" != "0" ];
+then
+   sudo apt install gconf2 python libappindicator1 libindicator7 -y
+   cd ~/Downloads
+   wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
+   sudo dpkg -i slack-desktop-4.1.1-amd64.deb
+   rm slack-desktop-4.1.1-amd64.deb
+fi
 # -->
 
 # VScode
-cd ~/Downloads
-wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
-sudo dpkg -i code_1.39.2-1571154070_amd64.deb
-rm code_1.39.2-1571154070_amd64.deb
+dpkg-query --show "code"
+if [ "$?" != "0" ];
+then
+   cd ~/Downloads
+   wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
+   sudo dpkg -i code_1.39.2-1571154070_amd64.deb
+   rm code_1.39.2-1571154070_amd64.deb
 
-code --install-extension ms-python.python
-code --install-extension vscodevim.vim
-code --install-extension rafamel.subtle-brackets
-code --install-extension ms-vscode-remote.vscode-remote-extensionpack
-code --install-extension ms-vscode.cpptools
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension cssho.vscode-svgviewer
+   code --install-extension ms-python.python
+   code --install-extension vscodevim.vim
+   code --install-extension rafamel.subtle-brackets
+   code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+   code --install-extension ms-vscode.cpptools
+   code --install-extension ms-azuretools.vscode-docker
+   code --install-extension cssho.vscode-svgviewer
 
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
-rm -f ~/.config/Code/User/settings.json
-rm -f ~/.config/Code/User/keybindings.json
-mv settings.json ~/.config/Code/User/
-mv keybindings-linux.json ~/.config/Code/User/
-
-/usr/bin/python3 -m pip install -U pylint --user
+   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
+   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
+   rm -f ~/.config/Code/User/settings.json
+   rm -f ~/.config/Code/User/keybindings.json
+   mv settings.json ~/.config/Code/User/
+   mv keybindings-linux.json ~/.config/Code/User/
+fi
 # -->
 
 # Jupyter Lab
-/usr/bin/python3 -m pip install -U matplotlib numpy scipy jupyterlab --user
+/usr/bin/python3 -m pip install -U matplotlib numpy scipy jupyterlab pylint --user
 # -->
 
 # Firefox uBlock Origin, https everywhere, privacy badger,floccus, vimium
-cd ~/.mozilla/firefox/*.default-release/extensions
-wget https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi -O uBlock0@raymondhill.net.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi -O https-everywhere@eff.org.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi -O jid1-MnnxcxisBPnSXQ@jetpack.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi -O floccus@handmadeideas.org.xpi
-wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi -O {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+test -f ~/.mozilla/firefox/*.default-release/extensions/uBlock0@raymondhill.net.xpi
+if [ "$?" != "0" ];
+then
+   cd ~/.mozilla/firefox/*.default-release/extensions
+   wget https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi -O uBlock0@raymondhill.net.xpi
+   wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi -O https-everywhere@eff.org.xpi
+   wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi -O jid1-MnnxcxisBPnSXQ@jetpack.xpi
+   wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi -O floccus@handmadeideas.org.xpi
+   wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi -O {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+fi
 # -->
 
 # Download Chromium web-apps | create with terminal?
-mkdir -p ~/Apps
-cd ~/Apps
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
-wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
+test -f ~/Apps/chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
+if [ "$?" != "0" ];
+then
+   mkdir -p ~/Apps
+   cd ~/Apps
+   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
+   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
+   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
+   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
+fi
 # -->
 
 # Thunderbird lightning
-mkdir -p ~/.thunderbird/*.default/extensions
-cd ~/.thunderbird/*.default/extensions
-wget https://addons.thunderbird.net/user-media/addons/_attachments/2313/lightning-6.2.5-sm+tb.xpi -O {e2fda1a4-762b-4020-b5ad-a41df1933103}.xpi
+test -f ~/.thunderbird/*.default/extensions/{e2fda1a4-762b-4020-b5ad-a41df1933103}.xpi
+if [ "$?" != "0" ];
+then
+   mkdir -p ~/.thunderbird/*.default/extensions
+   cd ~/.thunderbird/*.default/extensions
+   wget https://addons.thunderbird.net/user-media/addons/_attachments/2313/lightning-6.2.5-sm+tb.xpi -O {e2fda1a4-762b-4020-b5ad-a41df1933103}.xpi
+fi
 # -->
 
 ####### END PACKAGE CONFIG #######
