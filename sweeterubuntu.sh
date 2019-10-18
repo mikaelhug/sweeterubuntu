@@ -24,6 +24,8 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 # Install packages
 sudo apt update
 sudo apt install nextcloud-client spotify-client chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
+
+# Dependencies .debs
 sudo apt install gconf2 python libappindicator1 libindicator7 -y
 
 # Install .deb:s | should ideally automatically download latest
