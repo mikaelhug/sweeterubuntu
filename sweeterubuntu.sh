@@ -1,4 +1,24 @@
 
+
+####### UPDATE SYSTEM #######
+sudo apt update
+sudo apt upgrade -y
+####### END UPDATE SYSTEM #######
+
+
+####### PACKAGE CONFIG #######
+
+# Remove Snaps | because snaps are evil
+# sudo rm -rf /var/cache/snapd/
+# sudo apt autoremove --purge snapd gnome-software-plugin-snap
+# rm -fr ~/snap
+
+# Install nextcloud, spotify, chromium, slack, thunderbird, libreoffice, gnome-maps, remmina, system-monitor
+
+####### END PACKAGE CONFIG #######
+
+
+####### UI CONFIG #######
 # Disable super+{1,2,3,..} to launch apps
 gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
 gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-1 []
@@ -98,5 +118,8 @@ gsettings set org.gnome.desktop.interface enable-animations false
 #   border-radius: 2px; }
 # #####################################
 
-# Remove Snaps
-# sudo apt autoremove --purge snapd gnome-software-plugin-snap 
+# /usr/share/gnome-shell/theme/gnome-shell.css
+#.panel-button {
+#    -natural-hpadding: 6px;
+
+####### END UI CONFIG #######
