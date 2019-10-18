@@ -28,8 +28,9 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
 
-# Tab only active workspace
+# Tab only active workspace and isolate that workspace
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
+gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true
 
 # Change alt+tab to switch window and suber+tab to switch application
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
