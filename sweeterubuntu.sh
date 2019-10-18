@@ -14,6 +14,9 @@ sudo apt upgrade -y
 # rm -fr ~/snap
 
 # Install nextcloud, spotify, chromium, slack, thunderbird, libreoffice, gnome-maps, remmina, system-monitor
+sudo apt install thunderbird -y
+
+# Create Chromium web-apps
 
 ####### END PACKAGE CONFIG #######
 
