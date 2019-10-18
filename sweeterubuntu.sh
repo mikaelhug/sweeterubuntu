@@ -42,30 +42,33 @@ sudo apt install python3-pip git -y
 # -->
 
 # Slack
-test -f /etc/apt/sources.list.d/slack.list
+pkg-query --show "slack-desktop"
 if [ "$?" != "0" ];
 then
-   echo "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main" | sudo tee /etc/apt/sources.list.d/slack.list
-   sudo apt update
+   sudo apt install gconf2 python libappindicator1 libindicator7 -y
+   cd ~/Downloads
+   wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
+   sudo dpkg -i slack-desktop-4.1.1-amd64.deb
+   rm slack-desktop-4.1.1-amd64.deb
 fi
-sudo apt install gconf2 python libappindicator1 libindicator7 -y
-sudo apt install slack-desktop -y
 # -->
 
 # VScode
 test -f /etc/apt/sources.list.d/vscode.list
 if [ "$?" != "0" ];
 then
-   echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
-   sudo apt update
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+    sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+    sudo apt update
 
-   cd ~/Downloads
-   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
-   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
-   rm -f ~/.config/Code/User/settings.json
-   rm -f ~/.config/Code/User/keybindings.json
-   mv settings.json ~/.config/Code/User/
-   mv keybindings-linux.json ~/.config/Code/User/
+    cd ~/Downloads
+    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
+    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
+    rm -f ~/.config/Code/User/settings.json
+    rm -f ~/.config/Code/User/keybindings.json
+    mv settings.json ~/.config/Code/User/
+    mv keybindings-linux.json ~/.config/Code/User/
 fi
 sudo apt install code -y
 code --install-extension ms-python.python
