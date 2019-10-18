@@ -8,33 +8,74 @@ sudo apt install curl wget -y
 
 
 ####### PACKAGE CONFIG #######
-
 # Remove Snaps | because snaps are evil
 sudo rm -rf /var/cache/snapd/
 sudo apt autoremove --purge snapd gnome-software-plugin-snap -y
 rm -rf ~/snap
+# -->
 
 # Nextcloud PPA
 sudo add-apt-repository ppa:nextcloud-devs/client -y
+# -->
 
 # Spotify Repo
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+# -->
 
 # Install packages
 sudo apt update
 sudo apt install nextcloud-client spotify-client chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
+sudo apt install python3-pip git -y
+# -->
 
-# Dependencies .debs
+# pip3 installs
+/usr/bin/python3 -m pip install -U pylint matplotlib numpy scipy jupyterlab --user
+# -->
+
+# Slack
 sudo apt install gconf2 python libappindicator1 libindicator7 -y
-
-# Install .deb:s | should ideally automatically download latest
 cd ~/Downloads
-wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
 sudo dpkg -i code_1.39.2-1571154070_amd64.deb
-sudo dpkg -i slack-desktop-4.1.1-amd64.deb
-rm code_1.39.2-1571154070_amd64.deb slack-desktop-4.1.1-amd64.deb
+rm slack-desktop-4.1.1-amd64.deb
+# -->
+
+# VScode
+cd ~/Downloads
+wget https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/code_1.39.2-1571154070_amd64.deb
+sudo dpkg -i code_1.39.2-1571154070_amd64.deb
+rm code_1.39.2-1571154070_amd64.deb
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
+rm -f ~/.config/Code/User/settings.json
+rm -f ~/.config/Code/User/keybindings.json
+mv settings.json ~/.config/Code/User/settings.json
+mv keybindings-linux.json ~/.config/Code/User/keybindings.json
+
+/usr/bin/python3 -m pip install -U pylint --user
+
+code --install-extension ms-python.python
+code --install-extension vscodevim.vim
+code --install-extension rafamel.subtle-brackets
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension cssho.vscode-svgviewer
+# -->
+
+# Jupyter Lab
+/usr/bin/python3 -m pip install -U matplotlib numpy scipy jupyterlab --user
+
+# -->
+
+# Firefox uBlock Origin, https everywhere, privacy badger,floccus, vimium
+wget https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi
+wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi
+# -->
 
 # Create Chromium web-apps
 
