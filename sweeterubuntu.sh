@@ -13,8 +13,18 @@ sudo apt upgrade -y
 # sudo apt autoremove --purge snapd gnome-software-plugin-snap
 # rm -fr ~/snap
 
-# Install nextcloud, spotify, chromium, slack, thunderbird, libreoffice, gnome-maps, remmina, system-monitor
-sudo apt install thunderbird -y
+# Nextcloud PPA
+sudo add-apt-repository ppa:nextcloud-devs/client -y
+
+# Spotify Repo
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+# Install packages
+sudo apt install nextcloud-client spotify-client chromium thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
+
+# Install .deb:s
+# slack, vscode
 
 # Create Chromium web-apps
 
