@@ -56,7 +56,7 @@ sudo apt install slack-desktop -y
 test -f /etc/apt/sources.list.d/vscode.list
 if [ "$?" != "0" ];
 then
-   echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/slack.list
+   echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
    sudo apt update
 
    cd ~/Downloads
@@ -67,6 +67,7 @@ then
    mv settings.json ~/.config/Code/User/
    mv keybindings-linux.json ~/.config/Code/User/
 fi
+sudo apt install code -y
 code --install-extension ms-python.python
 code --install-extension vscodevim.vim
 code --install-extension rafamel.subtle-brackets
