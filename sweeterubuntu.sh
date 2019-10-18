@@ -55,8 +55,8 @@ wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/setti
 wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
 rm -f ~/.config/Code/User/settings.json
 rm -f ~/.config/Code/User/keybindings.json
-mv settings.json ~/.config/Code/User/settings.json
-mv keybindings-linux.json ~/.config/Code/User/keybindings.json
+mv settings.json ~/.config/Code/User/
+mv keybindings-linux.json ~/.config/Code/User/
 
 /usr/bin/python3 -m pip install -U pylint --user
 # -->
@@ -73,11 +73,11 @@ wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-lat
 wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi -O jid1-MnnxcxisBPnSXQ@jetpack.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi -O floccus@handmadeideas.org.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi -O {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
-mv uBlock0@raymondhill.net.xpi ~/.mozilla/firefox/*.default-release/extensions/uBlock0@raymondhill.net.xpi
-mv https-everywhere@eff.org.xpi ~/.mozilla/firefox/*.default-release/extensions/https-everywhere@eff.org.xpi
-mv jid1-MnnxcxisBPnSXQ@jetpack.xpi ~/.mozilla/firefox/*.default-release/extensions/jid1-MnnxcxisBPnSXQ@jetpack.xpi
-mv floccus@handmadeideas.org.xpi ~/.mozilla/firefox/*.default-release/extensions/floccus@handmadeideas.org.xpi
-mv {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi ~/.mozilla/firefox/*.default-release/extensions/{d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+mv uBlock0@raymondhill.net.xpi ~/.mozilla/firefox/*.default-release/extensions/
+mv https-everywhere@eff.org.xpi ~/.mozilla/firefox/*.default-release/extensions/
+mv jid1-MnnxcxisBPnSXQ@jetpack.xpi ~/.mozilla/firefox/*.default-release/extensions/
+mv floccus@handmadeideas.org.xpi ~/.mozilla/firefox/*.default-release/extensions/
+mv {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi ~/.mozilla/firefox/*.default-release/extensions/
 # -->
 
 # Create Chromium web-apps
