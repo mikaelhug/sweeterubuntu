@@ -63,27 +63,31 @@ mv keybindings-linux.json ~/.config/Code/User/
 
 # Jupyter Lab
 /usr/bin/python3 -m pip install -U matplotlib numpy scipy jupyterlab --user
-
 # -->
 
 # Firefox uBlock Origin, https everywhere, privacy badger,floccus, vimium
-cd ~/Downloads
+cd ~/.mozilla/firefox/*.default-release/extensions
 wget https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi -O uBlock0@raymondhill.net.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/229918/addon-229918-latest.xpi -O https-everywhere@eff.org.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/506646/addon-506646-latest.xpi -O jid1-MnnxcxisBPnSXQ@jetpack.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/707450/addon-707450-latest.xpi -O floccus@handmadeideas.org.xpi
 wget https://addons.mozilla.org/firefox/downloads/latest/808538/addon-808538-latest.xpi -O {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
-mv uBlock0@raymondhill.net.xpi ~/.mozilla/firefox/*.default-release/extensions/
-mv https-everywhere@eff.org.xpi ~/.mozilla/firefox/*.default-release/extensions/
-mv jid1-MnnxcxisBPnSXQ@jetpack.xpi ~/.mozilla/firefox/*.default-release/extensions/
-mv floccus@handmadeideas.org.xpi ~/.mozilla/firefox/*.default-release/extensions/
-mv {d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi ~/.mozilla/firefox/*.default-release/extensions/
 # -->
 
-# Create Chromium web-apps
-
+# Download Chromium web-apps | create with terminal?
+mkdir -p ~/Apps
+cd ~/Apps
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
+wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
 # -->
 
+# Thunderbird lightning
+mkdir -p ~/.thunderbird/*.default/extensions
+cd ~/.thunderbird/*.default/extensions
+wget https://addons.thunderbird.net/user-media/addons/_attachments/2313/lightning-6.2.5-sm+tb.xpi -O {e2fda1a4-762b-4020-b5ad-a41df1933103}.xpi
+# -->
 
 ####### END PACKAGE CONFIG #######
 
@@ -101,10 +105,12 @@ gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-7 []
 gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-8 []
 gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-9 []
 gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-10 []
+# -->
 
 # Enable 10 workspaces by default
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
+# -->
 
 # Enable super+nr to switch workspace | add move to workspace shortcut?
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
@@ -117,43 +123,53 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
+# -->
 
 # Tab only active workspace and isolate that workspace
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true
+# -->
 
 # Change alt+tab to switch window and suber+tab to switch application
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
+# -->
 
 # Some useful keyboard shortcuts
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal '<Super>t'
 gsettings set org.gnome.settings-daemon.plugins.media-keys home '<Super>f'
 gsettings set org.gnome.settings-daemon.plugins.media-keys www '<Super>w'
 gsettings set org.gnome.desktop.wm.keybindings panel-run-dialog "['<Super>r']"
+# -->
 
 # Dock visuals: dock size 28, 
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 28
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DASHES'
+# -->
 
 # Move titlebar buttons to the left
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+# -->
 
 # Use expanded list view
 gsettings set org.gnome.nautilus.list-view use-tree-view true
+# -->
 
 # Show battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
+# -->
 
 # Some date options
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.calendar show-weekdate true
+# -->
 
 # Disable animations
 gsettings set org.gnome.desktop.interface enable-animations false
+# -->
 
 # Install some extensions | poor with apt. Zip?
 # sudo apt install gnome-shell-extension-weather gnome-shell-extensions -y
