@@ -38,7 +38,7 @@ sudo apt install spotify-client -y
 # Install packages
 sudo apt update
 sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
-sudo apt install python3-pip git -y
+sudo apt install python3-pip git gnome-calculator -y
 # -->
 
 # Slack
