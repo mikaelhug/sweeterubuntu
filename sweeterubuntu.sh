@@ -157,7 +157,7 @@ then
    gsettings set org.gnome.shell.extensions.openweather unit 'celsius'
    gsettings set org.gnome.shell.extensions.openweather wind-speed-unit 'm/s'
 
-   org.gnome.shell enabled-extensions ['workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de']
+   org.gnome.shell enabled-extensions "['workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de']"
 fi
 # -->
 
