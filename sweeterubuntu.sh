@@ -88,7 +88,7 @@ then
    mv keybindings-linux.json ~/.config/Code/User/
 
    code --install-extension ms-python.python
-   code --install-extension vscodevim.vim
+   # code --install-extension vscodevim.vim
    code --install-extension rafamel.subtle-brackets
    code --install-extension ms-vscode-remote.vscode-remote-extensionpack
    code --install-extension ms-vscode.cpptools
@@ -142,6 +142,22 @@ then
    mkdir -p ~/.thunderbird/*.default/extensions
    cd ~/.thunderbird/*.default/extensions
    wget https://addons.thunderbird.net/user-media/addons/_attachments/2313/lightning-6.2.5-sm+tb.xpi -O {e2fda1a4-762b-4020-b5ad-a41df1933103}.xpi
+fi
+# -->
+
+# Install Shell extensions
+read -r -p "Install shell extensions and enable some? [y/N] " response
+if [ "$response" = "y" ]
+then
+   sudo apt install gnome-shell-extensions -y
+   sudo apt install gnome-shell-extension-weather -y 
+   
+   gsettings set org.gnome.shell.extensions.openweather city '59.3340332,18.0279186004574>Stockholm, Sveriges Landskap, Stockholms län, Svealand, Sverige >-1'
+   gsettings set org.gnome.shell.extensions.openweather pressure-unit 'hPa'
+   gsettings set org.gnome.shell.extensions.openweather unit 'celsius'
+   gsettings set org.gnome.shell.extensions.openweather wind-speed-unit 'm/s'
+
+   org.gnome.shell enabled-extensions ['workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de']
 fi
 # -->
 
@@ -229,16 +245,11 @@ then
 
    # Disable animations
    gsettings set org.gnome.desktop.interface enable-animations false
+
+   # Set favorites
+   gsettings set org.gnome.shell favorite-apps ['org.gnome.Nautilus.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'thunderbird.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'spotify.desktop', 'slack.desktop', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop', 'chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop', 'chrome-gekgekahgkbiejnhmfihhlkbmmpjcglf-Default.desktop']
 fi
 # -->
-
-# Install some extensions | poor with apt. Zip?
-# sudo apt install gnome-shell-extension-weather gnome-shell-extensions -y
-
-# Enable extensions | save as variable and extend with new
-# gsettings get org.gnome.shell enabled-extensions
-# gsettings set org.gnome.shell enabled-extensions "['workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
-
 
 # Make Workspace switcher popup smaller
 read -r -p "Make Workspace switcher and panel spacing smaller? [y/N] " response
@@ -259,6 +270,7 @@ then
    sudo sed -i '/^  #panel .panel-button/,/}$/ s/-minimum-hpadding:.*/-minimum-hpadding: 4px;/g' $config
 fi
 # -->
+
 ####### END UI CONFIG #######
 
 
