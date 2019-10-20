@@ -84,8 +84,8 @@ then
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
    rm -f ~/.config/Code/User/settings.json
    rm -f ~/.config/Code/User/keybindings.json
-   mv settings.json ~/.config/Code/User/
-   mv keybindings-linux.json ~/.config/Code/User/
+   mv settings.json ~/.config/Code/User/settings.json
+   mv keybindings-linux.json ~/.config/Code/User/keybindings.json
 
    code --install-extension ms-python.python
    # code --install-extension vscodevim.vim
