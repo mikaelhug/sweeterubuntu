@@ -118,21 +118,21 @@ then
 fi
 # -->
 
-# Download Chromium web-apps | create with terminal?
-read -r -p "Install Chromium apps? [y/N] " response
-if [ "$response" = "y" ]
-then
-   mkdir -p ~/Apps
-   cd ~/Apps
-   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
-   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
-   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
-   wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
-   chmod +x chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
-   chmod +x chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
-   chmod +x chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
-   chmod +x chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
-fi
+# Download Chromium web-apps doesnt work. | create with terminal?
+# read -r -p "Install Chromium apps? [y/N] " response
+# if [ "$response" = "y" ]
+# then
+#    mkdir -p ~/Apps
+#    cd ~/Apps
+#    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
+#    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
+#    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
+#    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/chrome-apps/chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
+#    chmod +x chrome-ncdkolgolkbieejnpdjkkihfbdmcdpnj-Default.desktop
+#    chmod +x chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop
+#    chmod +x chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
+#    chmod +x chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
+# fi
 # -->
 
 # Thunderbird lightning
@@ -247,7 +247,7 @@ then
    gsettings set org.gnome.desktop.interface enable-animations false
 
    # Set favorites
-   gsettings set org.gnome.shell favorite-apps ['org.gnome.Nautilus.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'thunderbird.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'spotify.desktop', 'slack.desktop', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop', 'chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop', 'chrome-gekgekahgkbiejnhmfihhlkbmmpjcglf-Default.desktop']
+   gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'thunderbird.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'spotify.desktop', 'slack.desktop']"
 fi
 # -->
 
