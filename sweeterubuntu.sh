@@ -78,6 +78,8 @@ read -r -p "Install VScode settings and extensions? [y/N] " response
 if [ "$response" = "y" ]
 then
    cd ~/Downloads
+   mkdir -p ~/.config/Code/User/
+   
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/settings.json
    wget https://raw.githubusercontent.com/mhugen/sweeterconfigs/master/vscode/keybindings-linux.json
    rm -f ~/.config/Code/User/settings.json
