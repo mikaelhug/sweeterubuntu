@@ -265,7 +265,7 @@ then
    sudo sed -i '/^.ws-switcher-box/,/}$/ s/border-radius:.*/border-radius: 2px; }/g' $config
 
    # Remove wide spacing panel icons
-   config=/usr/share/gnome-shell/theme/gnome-shell.css
+   config=/usr/share/gnome-shell/theme/ubuntu.css
    sudo sed -i '/^  #panel .panel-button/,/}$/ s/-natural-hpadding:.*/-natural-hpadding: 4px;/g' $config
    sudo sed -i '/^  #panel .panel-button/,/}$/ s/-minimum-hpadding:.*/-minimum-hpadding: 4px;/g' $config
 fi
