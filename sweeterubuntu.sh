@@ -286,6 +286,8 @@ fi
 
 ####### CONFIGs #######
 # remove in nautulius etc
+# git config --global user.email "you@example.com"
+# git config --global user.name "Your Name"
 ####### END CONFIGs #######
 
 echo "\n\nYou should restart your computer now.\n\n"
