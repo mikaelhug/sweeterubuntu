@@ -101,7 +101,7 @@ fi
 read -r -p "Install matplotlib numpy scipy jupyterlab pylint? [y/N] " response
 if [ "$response" = "y" ]
 then
-   /usr/bin/python3 -m pip install -U matplotlib numpy scipy jupyterlab pylint --user
+   /usr/bin/python3 -m pip install -U matplotlib numpy scipy sympy jupyterlab pylint --user
 fi
 # -->
 
