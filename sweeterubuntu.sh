@@ -42,16 +42,13 @@ fi
 # -->
 
 # Install packages
-read -r -p "Install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor? [y/N] " response
-if [ "$response" = "y" ]
-then
-   sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor -y
-fi
+sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor \
+   python3-pip git gnome-calculator -y
 
-read -r -p "Install python3-pip git gnome-calculator? [y/N] " response
+read -r -p "Install gnome-sushi (space to preview)? [y/N] " response
 if [ "$response" = "y" ]
 then
-   sudo apt install python3-pip git gnome-calculator -y
+   sudo apt install gnome-sushi -y
 fi
 # -->
 
@@ -92,12 +89,17 @@ then
    mv keybindings-linux.json ~/.config/Code/User/keybindings.json
 
    code --install-extension ms-python.python
-   # code --install-extension vscodevim.vim
    code --install-extension rafamel.subtle-brackets
    code --install-extension ms-vscode-remote.vscode-remote-extensionpack
    code --install-extension ms-vscode.cpptools
    code --install-extension ms-azuretools.vscode-docker
    code --install-extension cssho.vscode-svgviewer
+fi
+
+read -r -p "Install VScode vim extension? [y/N] " response
+if [ "$response" = "y" ]
+then
+   code --install-extension vscodevim.vim
 fi
 # -->
 
@@ -229,10 +231,6 @@ then
    gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DASHES'
    # -->
 
-   # Move titlebar buttons to the left
-   gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
-   # -->
-
    # Use expanded list view
    gsettings set org.gnome.nautilus.list-view use-tree-view true
    # -->
@@ -253,6 +251,14 @@ then
    # Set favorites
    gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'thunderbird.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'spotify.desktop', 'slack.desktop']"
 fi
+
+read -r -p "Move titlebar buttons to the left? [y/N] " response
+if [ "$response" = "y" ]
+then
+  # Move titlebar buttons to the left
+   gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+fi
+
 # -->
 
 # Make Workspace switcher popup smaller
@@ -277,5 +283,9 @@ fi
 
 ####### END UI CONFIG #######
 
+
+####### CONFIGs #######
+# remove in nautulius etc
+####### END CONFIGs #######
 
 echo "\n\nYou should restart your computer now.\n\n"

@@ -1,0 +1,37 @@
+Firefox
+- remove firefox home content
+- restore previous session
+- remove search engines (except google)
+- disable data collection
+- enable bookmarks bar
+- delete default bookmarks
+- enable extensions if possible
+- normal tabs
+- remove library and sync from customize
+- remove welcome to firefox (new tabs)
+- add swedish spell check
+ 
+Thunderbird
+- remove help mozilla
+- use vertical view
+- disable start page
+- mailnews.show_send_progress: false
+- remove from standard coloumn: thread, starred, read, junk
+- newest on top
+- add swedish spellcheck
+
+Nautilus
+- status bar (files and free space)
+- separate copy window
+- remove music, pictures, videos, trash, recent
+--> sudo nano /etc/xdg/user-dirs.defaults
+--> nano ~/.config/user-dirs.dirs
+
+Git
+- setup git user & email
+
+Terminal
+- generate ssh-keygen
+
+Chromium
+- generate webapps with a command?
