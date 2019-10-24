@@ -10,8 +10,9 @@ sudo apt install curl wget -y
 
 
 ####### PACKAGE CONFIG #######
+
 # Remove Snaps | because snaps are evil
-read -r -p "Remove Snaps becuase they are evil? [y/N] " response
+read -r -p "Remove Snaps becuase they are evil (potentially dangerous)? [y/N] " response
 if [ "$response" = "y" ]
 then
    sudo rm -rf /var/cache/snapd/
@@ -307,7 +308,25 @@ fi
 
 
 ####### CONFIGs #######
-# remove in nautulius etc
+
+# Remove music, pictures, videos from Nautilus bookmarks
+# Unable to remove trash, recent 
+# Not ideal solution, this removes the connection to the default folder
+# For programs like screenshot (pictures)
+read -r -p "Remove music, pictures, videos from Nautilus bookmarks? [y/N] " response
+if [ "$response" = "y" ]
+then
+   sed -i 's/^\(XDG_TEMPLATES_DIR.*\)/#\1/g' ~/.config/user-dirs.dirs
+   sed -i 's/^\(XDG_MUSIC_DIR.*\)/#\1/g' ~/.config/user-dirs.dirs
+   sed -i 's/^\(XDG_PICTURES_DIR.*\)/#\1/g' ~/.config/user-dirs.dirs
+   sed -i 's/^\(XDG_VIDEOS_DIR.*\)/#\1/g' ~/.config/user-dirs.dirs
+
+   sudo sed -i 's/^\(TEMPLATES.*\)/#\1/g' /etc/xdg/user-dirs.defaults
+   sudo sed -i 's/^\(MUSIC   .*\)/#\1/g' /etc/xdg/user-dirs.defaults
+   sudo sed -i 's/^\(PICTURES.*\)/#\1/g' /etc/xdg/user-dirs.defaults
+   sudo sed -i 's/^\(VIDEOS.*\)/#\1/g' /etc/xdg/user-dirs.defaults
+fi
+# -->
 
 # Configure Git
 read -r -p "Configure Git name and email? [y/N] " response
@@ -324,7 +343,7 @@ fi
 read -r -p "Create ssh certificate? [y/N] " response
 if [ "$response" = "y" ]
 then
-   ssh-keygen
+   ssh-keygen -f ~/.ssh/id_rsa
 fi
 # -->
 
