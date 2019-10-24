@@ -270,9 +270,12 @@ then
    # Set favorites
    gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'thunderbird.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'spotify.desktop', 'slack.desktop']"
 
-   # Disable external search-providers and make search less useless
+   # Disable external search-providers and make search less useless and disable
+   # Some privacy stuff
    gsettings set org.gnome.desktop.search-providers disable-external true
    gsettings set org.gnome.nautilus.preferences recursive-search 'never'
+   gsettings set org.gnome.desktop.privacy remember-recent-files false
+   gsettings set org.gnome.desktop.privacy send-software-usage-stats false
 fi
 # -->
 
