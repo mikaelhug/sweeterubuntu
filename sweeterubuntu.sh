@@ -46,6 +46,14 @@ sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gno
    python3-pip git gnome-calculator -y
 # -->
 
+# Install ddccontrol gddccontrol ddccontrol-db i2c-tools
+read -r -p "Install DDC-control to change external monitor brightness? [y/N] " response
+if [ "$response" = "y" ]
+then
+   sudo apt install ddccontrol gddccontrol ddccontrol-db i2c-tools
+fi
+# -->
+
 # Install gnome-sushi (use space-bar to preview files and folders)
 read -r -p "Install gnome-sushi (space to preview)? [y/N] " response
 if [ "$response" = "y" ]
@@ -102,6 +110,12 @@ read -r -p "Install VScode vim extension? [y/N] " response
 if [ "$response" = "y" ]
 then
    code --install-extension vscodevim.vim
+fi
+
+read -r -p "Remap caps lock to escape (for vim users)? [y/N] " response
+if [ "$response" = "y" ]
+then
+   gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 fi
 # -->
 
@@ -307,8 +321,9 @@ fi
 # Create ssh certificate
 read -r -p "Create ssh certificate? [y/N] " response
 if [ "$response" = "y" ]
-   ssh-keygen
 then
+   ssh-keygen
+fi
 # -->
 
 ####### END CONFIGs #######
