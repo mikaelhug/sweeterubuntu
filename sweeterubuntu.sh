@@ -322,7 +322,7 @@ then
    sed -i 's/^\(XDG_VIDEOS_DIR.*\)/#\1/g' ~/.config/user-dirs.dirs
 
    sudo sed -i 's/^\(TEMPLATES.*\)/#\1/g' /etc/xdg/user-dirs.defaults
-   sudo sed -i 's/^\(MUSIC   .*\)/#\1/g' /etc/xdg/user-dirs.defaults
+   sudo sed -i 's/^\(MUSIC.*\)/#\1/g' /etc/xdg/user-dirs.defaults
    sudo sed -i 's/^\(PICTURES.*\)/#\1/g' /etc/xdg/user-dirs.defaults
    sudo sed -i 's/^\(VIDEOS.*\)/#\1/g' /etc/xdg/user-dirs.defaults
 fi
