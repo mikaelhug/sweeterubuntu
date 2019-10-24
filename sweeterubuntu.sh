@@ -206,9 +206,10 @@ then
    gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-10 []
    # -->
 
-   # Enable 10 workspaces by default
+   # Enable 10 workspaces by default on all monitors
    gsettings set org.gnome.mutter dynamic-workspaces false
    gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
+   gsettings set org.gnome.mutter workspaces-only-on-primary false
    # -->
 
    # Enable super+nr to switch workspace | add move to workspace shortcut?
