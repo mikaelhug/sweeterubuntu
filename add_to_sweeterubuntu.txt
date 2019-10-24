@@ -23,15 +23,10 @@ Thunderbird
 Nautilus
 - status bar (files and free space)
 - separate copy window
+- move to letter instead of search upon typing
 - remove music, pictures, videos, trash, recent
 --> sudo nano /etc/xdg/user-dirs.defaults
 --> nano ~/.config/user-dirs.dirs
-
-Git
-- setup git user & email
-
-Terminal
-- generate ssh-keygen
 
 Chromium
 - generate webapps with a command?

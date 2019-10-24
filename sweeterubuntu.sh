@@ -44,7 +44,9 @@ fi
 # Install packages
 sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor \
    python3-pip git gnome-calculator -y
+# -->
 
+# Install gnome-sushi (use space-bar to preview files and folders)
 read -r -p "Install gnome-sushi (space to preview)? [y/N] " response
 if [ "$response" = "y" ]
 then
@@ -172,6 +174,7 @@ fi
 
 ####### UI CONFIG #######
 
+# Lots of custom Ubuntu features
 read -r -p "Use custom Ubuntu features? [y/N] " response
 if [ "$response" = "y" ]
 then
@@ -250,15 +253,18 @@ then
 
    # Set favorites
    gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'thunderbird.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'spotify.desktop', 'slack.desktop']"
-fi
 
+   # Disable external search-providers
+   gsettings set org.gnome.desktop.search-providers disable-external true
+fi
+# -->
+
+# Move titlebar buttons to the left
 read -r -p "Move titlebar buttons to the left? [y/N] " response
 if [ "$response" = "y" ]
 then
-  # Move titlebar buttons to the left
    gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 fi
-
 # -->
 
 # Make Workspace switcher popup smaller
@@ -286,8 +292,25 @@ fi
 
 ####### CONFIGs #######
 # remove in nautulius etc
-# git config --global user.email "you@example.com"
-# git config --global user.name "Your Name"
+
+# Configure Git
+read -r -p "Configure Git name and email? [y/N] " response
+if [ "$response" = "y" ]
+then
+   read -r -p "Enter name for git: " response
+   git config --global user.name "$response"
+   read -r -p "Enter email for git: " response
+   git config --global user.email "$response"
+fi
+# -->
+
+# Create ssh certificate
+read -r -p "Create ssh certificate? [y/N] " response
+if [ "$response" = "y" ]
+   ssh-keygen
+then
+# -->
+
 ####### END CONFIGs #######
 
 echo "\n\nYou should restart your computer now.\n\n"
