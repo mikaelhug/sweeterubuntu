@@ -43,7 +43,7 @@ fi
 # -->
 
 # Install packages
-sudo apt install chromium-browser thunderbird libreoffice gnome-maps remmina gnome-system-monitor \
+sudo apt install chromium-browser thunderbird xul-ext-lightning libreoffice gnome-maps remmina gnome-system-monitor \
    python3-pip git gnome-calculator -y
 # -->
 
@@ -156,16 +156,6 @@ fi
 #    chmod +x chrome-fmpeogjilmkgcolmjmaebdaebincaebh-Default.desktop
 #    chmod +x chrome-nmjkbfkcjpemjeeipomkicbjanjdhbkd-Default.desktop
 # fi
-# -->
-
-# Thunderbird lightning
-read -r -p "Add Lightning to Thunderbird? [y/N] " response
-if [ "$response" = "y" ]
-then
-   mkdir -p ~/.thunderbird/*.default/extensions
-   cd ~/.thunderbird/*.default/extensions
-   wget https://addons.thunderbird.net/user-media/addons/_attachments/2313/lightning-6.2.5-sm+tb.xpi -O {e2fda1a4-762b-4020-b5ad-a41df1933103}.xpi
-fi
 # -->
 
 # Install Shell extensions
