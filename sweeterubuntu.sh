@@ -201,6 +201,8 @@ then
    gsettings set org.gnome.mutter dynamic-workspaces false
    gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
    gsettings set org.gnome.mutter workspaces-only-on-primary false
+   gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
+   gsettings set org.gnome.shell.extensions.classic-overrides workspaces-only-on-primary false
    # -->
 
    # Enable super+nr to switch workspace | add move to workspace shortcut?
