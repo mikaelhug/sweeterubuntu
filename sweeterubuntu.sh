@@ -43,15 +43,19 @@ fi
 # -->
 
 # Install packages
+read -r -p "Install Chromium, Thunderbird, LibreOffice etc? [y/N] " response
+if [ "$response" = "y" ]
+then
 sudo apt install chromium-browser thunderbird xul-ext-lightning libreoffice gnome-maps remmina gnome-system-monitor \
    python3-pip git gnome-calculator -y
+fi
 # -->
 
 # Install ddccontrol gddccontrol ddccontrol-db i2c-tools
 read -r -p "Install DDC-control to change external monitor brightness? [y/N] " response
 if [ "$response" = "y" ]
 then
-   sudo apt install ddccontrol gddccontrol ddccontrol-db i2c-tools
+   sudo apt install ddccontrol gddccontrol ddccontrol-db i2c-tools -y
 fi
 # -->
 
