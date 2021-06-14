@@ -27,7 +27,7 @@ if [ "$response" = "y" ]
 then
    sudo add-apt-repository ppa:nextcloud-devs/client -y
    sudo apt update
-   sudo apt install nextcloud-client -y
+   sudo apt install nextcloud-desktop -y
 fi
 # -->
 
@@ -35,7 +35,7 @@ fi
 read -r -p "Add Spotify repo and install? [y/N] " response
 if [ "$response" = "y" ]
 then
-   curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+   curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
    sudo apt update
    sudo apt install spotify-client -y
@@ -73,9 +73,9 @@ if [ "$response" = "y" ]
 then
    sudo apt install gconf2 python libappindicator1 libindicator7 -y
    cd ~/Downloads
-   wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-amd64.deb
-   sudo dpkg -i slack-desktop-4.1.1-amd64.deb
-   rm slack-desktop-4.1.1-amd64.deb
+   wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.16.0-amd64.deb
+   sudo dpkg -i slack-desktop-4.16.0-amd64.deb
+   rm slack-desktop-4.16.0-amd64.deb
 fi
 # -->
 
